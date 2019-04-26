@@ -1,0 +1,24 @@
+{
+    "name": "api.insytelabs.com",
+    "version": "1.0.0",
+    "description": "Insyte Labs API Server",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/InsyteLabs/api.insytelabs.com.git"
+    },
+    "author": "Bryce Jech <bryce@brycejech.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/InsyteLabs/api.insytelabs.com/issues"
+    },
+    "homepage": "https://github.com/InsyteLabs/api.insytelabs.com#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.16.4"
+    }
+}
