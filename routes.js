@@ -18,10 +18,10 @@ router.post('/forms/contact', async (req, res, next) => {
     const { firstName, lastName, email, message } = req.body;
 
     if(!(firstName && lastName && email && message)){
-        return clientError('First name, last name, email, and message fields required');
+        return clientError(res, 'First name, last name, email, and message fields required');
     }
     if(!/.*?@.+\..{2,}/.test(email)){
-        return clientError('Invalid email');
+        return clientError(res, 'Invalid email');
     }
 
     let result;
@@ -111,9 +111,14 @@ async function saveResult(result){
 
     data.push(result);
 
-    fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf8', err => {
-        console.error(`Error saving data to path ${ filePath }`);
-        console.error(err);
+    return new Promise((resolve, reject) => {
+        fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf8', err => {
+            if(err){
+                console.error(`Error saving data to path ${ filePath }`);
+                return reject(err);
+            }
+            resolve(true);
+        });
     });
 }
 
