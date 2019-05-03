@@ -1,4 +1,5 @@
 node_modules
 conf
-.env
 submissions.json
+process.config.js
+log/
